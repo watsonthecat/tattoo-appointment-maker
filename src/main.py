@@ -45,4 +45,4 @@ if __name__ == '__main__':
     db = Database()
     db.populate_generic_data()
     # Start this application
-    app.run(debug=True)
+    app.run(debug=True, threaded=True)
