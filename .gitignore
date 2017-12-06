@@ -4,6 +4,8 @@
 .idea/**/tasks.xml
 .idea/dictionaries
 .idea/*
+.idea/**
+.idea/**/workspace.xml
 # Environments
 .env
 .venv
