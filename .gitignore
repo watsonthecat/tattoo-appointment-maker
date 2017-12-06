@@ -19,7 +19,8 @@ venv.bak/
 **/*.db
 data_store.db
 
+**/.idea/*
 # Byte-compiled / optimized / DLL files
-__pycache__/
+**/__pycache__/
 *.py[cod]
 *$py.class
