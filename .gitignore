@@ -18,3 +18,8 @@ venv.bak/
 **/*.sqlite
 **/*.db
 data_store.db
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
