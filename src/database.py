@@ -49,8 +49,8 @@ class Database:
             filter(User.email_address == email):
             return user
 
-    def get_studio(self, string):
-
+    def check_studio(self, string):
+        """ Checks to see if Tattoo Studio exists in DB """
         search_session = self._get_session()
         count = search_session.query(Studio).filter_by(studio_name=string).count()
 
@@ -61,9 +61,16 @@ class Database:
             search_session.close()
             return False
 
+    def get_studio(self, studio_name):
+        """ Get a studio by studio_name """
+        search_session = self._get_session()
+
+        for studio in search_session.query(Studio).filter_by(studio_name=studio_name):
+            return studio
+
     def populate_generic_data(self):
         """
-        Populate Studio Table with Generic Tattoo Shops
+        Populate Studio Table with a Generic Tattoo Shop
         Note: this would be replaced with customer data/people who buy this software
 
         """
@@ -72,14 +79,18 @@ class Database:
         test_studio = Studio(studio_name='Rad Tattoo Shop', admin_email_address='jen.plemel@gmail.com',
                             studio_url='www.blackendtattoo.com/')
         # if it doesn't already exist
-        if not (self.get_studio(test_studio.studio_name)):
+        if not (self.check_studio(test_studio.studio_name)):
             # Add testStudio object to session
             # This maps the object to a row in the DB
             save_session.add(test_studio)
             print('Added ' + test_studio.studio_name + ' to DB')
-            # Doesn't save to DB until session is committed, or closed
-            # Commit to save changes
+        # Doesn't save to DB until session is committed, or closed
+        # Commit to save changes
         save_session.commit()
+
+        # Checking to make sure it was added, and ID auto generated like it's supposed to
+        # studio = self.get_studio('Rad Tattoo Shop')
+        # print(studio)
 
 
     # I don't think I need this, because my User Class inherits Base (attached/mapped to engine)

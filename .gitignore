@@ -1,0 +1,20 @@
+
+# User-specific stuff:
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/dictionaries
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# database file
+**/*.sqlite3
+**/*.sqlite
+**/*.db
+data_store.db
