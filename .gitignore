@@ -28,3 +28,6 @@ data_store.db
 *$py.class
 *.pyc
 __pycache__
+
+# Sensitive information
+config.py

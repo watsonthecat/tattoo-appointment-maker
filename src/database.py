@@ -3,6 +3,7 @@ from sqlalchemy.orm import sessionmaker
 from os import environ
 from src.user import User
 from src.studios import Studio
+from config import Keys
 
 # conn_str = will resolve a connection string from environment variable
 # this value will be overwritten if the caller sends their own conn_str in the constructor
@@ -76,7 +77,7 @@ class Database:
         """
         save_session = self._get_session()
         # Create Studio object; use named args to set values of the object
-        test_studio = Studio(studio_name='Rad Tattoo Shop', admin_email_address='jen.plemel@gmail.com',
+        test_studio = Studio(studio_name='Rad Tattoo Shop', admin_email_address=Keys.personal_email,
                             studio_url='www.blackendtattoo.com/')
         # if it doesn't already exist
         if not (self.check_studio(test_studio.studio_name)):

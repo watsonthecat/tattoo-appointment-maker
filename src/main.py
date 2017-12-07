@@ -10,8 +10,9 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
+    # First Page
     """ First Page/Login """
-    #TODO: Create login.html
+
     # Login or Create Account
     # If Login: Check that user input is correct, continue to "Home" page
     # If Create Account: Go to Create Account Page, if user input valid then create user, redirect to Login
@@ -19,7 +20,7 @@ def index():
 
 # TODO: Account creation page
 
-# TODO: Main page: Request Appointment,
+# TODO: Home page: Request Appointment
 
 # TODO: Appointment Page: Select Shop, Appointment specifications, Time Slot Selection, Submit Request
 
@@ -28,16 +29,12 @@ def index():
 
 @app.route('/home', methods=['GET', 'POST'])
 def home():
+    # User comes here if valid login
     """ This is the path in your application that users are redirected to after they have authenticated with Google """
     return render_template("home.html")
 
 
 
-@app.route('/logo', methods=['GET'])
-def logo():
-    """ This page only displays logo - For Google API setup"""
-
-    return render_template("logo.html")
 
 if __name__ == '__main__':
 
