@@ -30,13 +30,13 @@ class User(Base):
     email_address = Column(String)
     password = Column(String)
 
-    def __init__(self, first_name, last_name, user_name, email_address, password, user_id):
+    def __init__(self, first_name, last_name, user_name, email_address, password):
         self.first_name = first_name
         self.last_name = last_name
         self.user_name = user_name
         self.email_address = email_address
         self.password = password
-        self.user_id = user_id
+
 
     def __repr__(self):
         """ Returns string representation of this object, helpful for debugging """
