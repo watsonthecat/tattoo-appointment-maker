@@ -21,7 +21,7 @@ class User(Base):
 
     """ Defines metadata about a User table. Will create User objects from rows in this table """
 
-    __tablename__ = 'Users'
+    __tablename__ = 'User'
 
     user_id = Column(Integer, primary_key=True)
     first_name = Column(String)

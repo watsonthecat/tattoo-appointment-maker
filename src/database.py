@@ -39,9 +39,10 @@ class Database:
     def get_user(self, username):
         """ Get a user by username """
         session = self._get_session()
-        user = session.query(User).filter_by(user_name=username).one()
 
-        return user
+        for user in session.query(User).filter_by(user_name=username):
+            return user
+
 
     def find_user_with_email(self, email):
         """ Get a user by email"""
@@ -92,30 +93,38 @@ class Database:
         test_studio = Studio(studio_name='Rad Tattoo Shop', admin_email_address=Keys.personal_email,
                             studio_url='www.blackendtattoo.com/')
 
-
         # if it doesn't already exist
         if not (self.check_studio(test_studio.studio_name)):
             # Add testStudio object to session
             # This maps the object to a row in the DB
             save_session.add(test_studio)
             print('Added ' + test_studio.studio_name + ' to DB')
+
         # Doesn't save to DB until session is committed, or closed
 
-        test_user = User(first_name='Jen',last_name='P', user_name='Jplemel', email_address=Keys.personal_email,
-                         password="asdf")
-        # if it doesn't already exist
-        if not (self.check_user(test_user.user_name)):
-            # Add testStudio object to session
-            # This maps the object to a row in the DB
-            save_session.add(test_user)
-            print('Added ' + test_user.user_name + ' to DB')
-        # Commit to save changes
         save_session.commit()
 
         # Checking to make sure it was added, and ID auto generated like it's supposed to
-        # studio = self.get_studio('Rad Tattoo Shop')
-        # print(studio)
+        studio = self.get_studio('Rad Tattoo Shop')
+        print(studio)
 
+    def populate_generic_user(self):
+        other_session = self._get_session()
+
+        test_user = User(first_name='Jen', last_name='P', user_name='Jplemel', email_address=Keys.personal_email,
+                         password="asdf")
+        # if it doesn't already exist
+        print(test_user.user_name)
+        if not (self.check_user(test_user.user_name)):
+            # Add testStudio object to session
+            # This maps the object to a row in the DB
+            other_session.add(test_user)
+            print('Added ' + test_user.user_name + ' to DB')
+
+        # Commit to save changes
+        other_session.commit()
+        new_guy = self.get_user('bs')
+        print(new_guy)
 
     # I don't think I need this, because my User Class inherits Base (attached/mapped to engine)
     # It should automatically create a table w/set metadata(parameters)

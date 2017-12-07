@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, session
 import time
 from src.login import UserManager
 from src.database import Database
+from src.user import User
 from os import environ
 
 app = Flask(__name__)
@@ -66,9 +67,15 @@ def auth():
         return render_template('login.html')
 
 
-# TODO: Account creation page
+@app.route('/signout', methods=['get'])
+def signout():
+    """ Sign Out the User"""
+    if check_for_user():
+        print('user logged in, signing out')
+        sign_user_out()
+        print('redirecting to index')
+        return redirect('/')
 
-# TODO: Home page: Request Appointment
 
 # TODO: Appointment Page: Select Shop, Appointment specifications, Time Slot Selection, Submit Request
 
@@ -86,6 +93,25 @@ def home():
 def signup():
     # User directed here from index, if link clicked
     """ New User Sign Up Page"""
+    if request.method == 'POST':
+        print('POST')
+        username = request.form.get('username')
+        password = request.form.get('password')
+        first_name = request.form.get('first-name')
+        last_name = request.form.get('last-name')
+        email = request.form.get('email')
+
+        try:
+            USER_MANAGER.add_user(first_name, last_name, username, email, password)
+            sign_user_in(username)
+            print('user created')
+        except RuntimeError as err:
+            print('failed to create user')
+            return render_template('signup.html', error_text=err.args[0])
+        print('redirecting to home')
+        return redirect('/home')
+
+    print('sending signup')
     return render_template("signup.html")
 
 
@@ -149,5 +175,6 @@ if __name__ == '__main__':
     # Setup Database
     db = Database()
     db.populate_generic_data()
+    db.populate_generic_user()
     # Start this application
     app.run(debug=True, threaded=True)

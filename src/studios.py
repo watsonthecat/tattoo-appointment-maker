@@ -11,7 +11,7 @@ User Shop: Represents a tattoo studio + shop specifics
 class Studio(Base):
     """ Defines metadata about a Shop table. Will create Shop objects from rows in this table """
 
-    __tablename__ = 'studios'
+    __tablename__ = 'Studio'
 
     studio_id = Column(Integer, primary_key=True)
     studio_name = Column(String)

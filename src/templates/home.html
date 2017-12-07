@@ -1,1 +1,9 @@
 <!--This is the path in your application that users are redirected to after they have authenticated with Google.-->
+{% extends "layouts/layout1.html" %}
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+<span> To sign out: <a href="/signout">Click here</a></span>
+{% endblock %}

@@ -11,15 +11,16 @@ class UserManager:
     def __init__(self):
         self.database = Database()
 
-    def add_user(self, first_name, last_name, username, password, email_address):
+    def add_user(self, first_name, last_name, username, email_address, password):
         """ Add User to DB """
 
         # hash password
-        password_hash = self.hash_password(password)
+        # password_hash = self.hash_password(password)
 
         if self.find_user(username, email_address) is None:
             user = User(first_name=first_name, last_name=last_name, user_name=username, email_address=email_address,
-                        password=password_hash)
+                        password=password)
+            self.database.add_user(user)
         else:
             raise RuntimeError('User already exists')
 
@@ -46,6 +47,7 @@ class UserManager:
 
         user = self.database.get_user(username)
         print(username + ' login.py @48')
+
         if user is None:
             return False
 
