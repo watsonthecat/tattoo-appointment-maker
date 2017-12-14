@@ -25,6 +25,7 @@ Admin Account Changes:
 - View Google Calendar (to see availability)
 - Select/Change Appointment Date
 - Add Other Calendars (manage other artist's schedule)
+
 User Account Changes: 
 - Edit/Delete their account
 - Upload image to appointment
