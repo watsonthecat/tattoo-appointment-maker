@@ -5,5 +5,44 @@ Home
 {% endblock %}
 
 {% block content %}
-<span> To sign out: <a href="/signout">Click here</a></span>
+    <style>
+div {
+    background-color: white;
+    width: 300px;
+    border: 5px solid black;
+    padding: 25px;
+    margin: 25px;
+}
+</style>
+
+<span> To sign out: <a href="/signout">Click here</a></span><br>
+
+    <h1>Welcome {{ user.first_name }}!</h1>
+    This application allows you to request an appointment with Rad Tattoo Shop in Minneapolis!<br>
+<span> To request appointment: <a href="/requestappointment">Click here</a></span><br><br><br>
+    <b>New Features Coming soon...</b><br>
+    - Upload reference photos of your desired tattoo<br>
+    - Edit/Delete your account*<br><br>
+    *Until these are updates are completed, if you would like to make changes to your account, please email the developer: rt8708hz@go.minneapolis.edu<br>
+<h2>List of appointment requests:</h2><br>
+    These are current pending appointments you have requested.<br>
+    Once they are booked, they will no longer appear on this list.<br>
+    <h4>**** These appointments are not yet confirmed ****<br></h4>
+    - You will get an email notification + invite to Google Calendar event when confirmed<br>
+    - Appointments subject to change depending on the tattoo shop/artist's availability<br><br>
+    ----------------------------------------------------------------------------------------------------------<br>
+
+        {% for event in event_list %}
+<div>
+            <h5>Request ID: {{ event.event_id }}</h5>
+            <h5>{{ event.summary }}</h5>
+            <h5>Summary of Appointment: {{ event.description }}</h5>
+            <h5>Studio: Rad Tattoo Shop</h5>
+                        <form action="delStuff" method="post">
+                                <input type="hidden" name="event-id" value="{{ event.event_id }}"/>
+                                <button type="submit" value="del_event_btn" name="submit">Delete Appointment Request</button>
+                            </form>
+</div>
+        {% endfor %}
+
 {% endblock %}

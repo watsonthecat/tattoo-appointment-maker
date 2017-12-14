@@ -31,3 +31,9 @@ __pycache__
 
 # Sensitive information
 config.py
+client_secret.json
+quickstart.py
+api.py
+adminhome.html
+adminlogin.html
+requestappointment.html

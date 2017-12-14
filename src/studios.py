@@ -18,7 +18,7 @@ class Studio(Base):
     admin_email_address = Column(String)  # Might be making this a foreign key
     studio_url = Column(String)
 
-    def __init__(self, studio_name, admin_email_address,studio_url):
+    def __init__(self, studio_name, admin_email_address, studio_url):
         self.studio_name = studio_name
         self.admin_email_address = admin_email_address
         self.studio_url = studio_url
