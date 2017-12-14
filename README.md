@@ -1,4 +1,4 @@
-# Tattoo Appointment Maker
+# Appointment Maker
 This application will allow the user to schedule appointments via Google Calendar API
 
 - Flask
