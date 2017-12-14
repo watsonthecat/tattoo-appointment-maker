@@ -12,10 +12,10 @@ User can...
 - Request Appointment 
 - Pick Appointment Time
 - Delete Request
-- Log Out
+- Login/Log Out
 
 Admin (Shop Owner)Account can...
-- Login
+- Login/Logout
 - Accept Requests
 - Schedule Requested Event via Google Calendar
 - View Booked Events
