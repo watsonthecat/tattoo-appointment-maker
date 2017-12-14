@@ -40,6 +40,8 @@ User Account Changes:
 
 Admin Home View:
 
+![image](https://user-images.githubusercontent.com/31329210/34008606-83eeb330-e0cb-11e7-911b-42b16dcfb71a.png)
+
 
 
 
