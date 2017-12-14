@@ -41,6 +41,9 @@ User Account Changes:
 Admin Home View:
 
 ![image](https://user-images.githubusercontent.com/31329210/34008606-83eeb330-e0cb-11e7-911b-42b16dcfb71a.png)
+Button adds it to Google Calendar: 
+![image](https://user-images.githubusercontent.com/31329210/34008689-cf9178b8-e0cb-11e7-9a1f-e70a91da8baa.png)
+
 
 
 
