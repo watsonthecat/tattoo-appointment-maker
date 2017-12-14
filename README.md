@@ -35,10 +35,12 @@ User Account Changes:
 ![image](https://user-images.githubusercontent.com/31329210/34008349-a59ee51e-e0ca-11e7-8a6e-a1ffa11c65dd.png)
 ![image](https://user-images.githubusercontent.com/31329210/34008400-d1297fd2-e0ca-11e7-9774-c1dbb9528ee4.png)
 ![image](https://user-images.githubusercontent.com/31329210/34008486-1ff8000c-e0cb-11e7-9dae-efa39072c19a.png)
+![image](https://user-images.githubusercontent.com/31329210/34008535-4a051e34-e0cb-11e7-9361-9cbf5851a258.png)
 
 
+Admin Home View:
 
-![image](https://user-images.githubusercontent.com/31329210/34008253-49d4ebde-e0ca-11e7-9fe3-ef7c1d4e2f3c.png)
+
 
 
 
